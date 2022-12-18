@@ -238,11 +238,10 @@ public class Board {
         }
         return children;
     }
-     // It returns the frequency of "N" checkers in a row,
-    // for the given player, with "checkersInARow - N" adjacent checkers
-    // of the same player or empty tiles.
+     // It returns the frequency of "n" checkers in a row,
+    // for the given player, with "checkersInARow - N" adjacent checker
     // The aim is to search for checkers in a row,
-    // with a potential to form a Connect-"checkersInARow".
+    // with a potential to form a Connect-"checkeinRow".
     public int countNInARow(int n, int player) {
         int times = 0;
 
@@ -250,7 +249,7 @@ public class Board {
         for (int i = 0; i < numOfRows; i++) {
             for (int j = 0; j < numOfColums; j++) {
                 if (canMove(i, j + checkInRow - 1)) {
-                    // Check for "n" consecutive checkers of the same player in a row, horizontally.
+                    
                     int k = 0;
                     while (k < n && gameBoard[i][j + k] == player) {
                         k++;
@@ -266,7 +265,7 @@ public class Board {
             }
         }
 
-        // Check for "checkersInARow" consecutive checkers of the same player or empty tiles in a row, vertically.
+        
         for (int i = 0; i < numOfRows; i++) {
             for (int j = 0; j < numOfColums; j++) {
                 if (canMove(i - numOfColums + 1, j)) {
